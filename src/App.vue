@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <app-header />
-    <main>main</main>
+    <main></main>
     <app-footer />
   </div>
 </template>
@@ -17,12 +17,22 @@ export default {
 </script>
 
 <style>
+body {
+  margin: 0;
+}
+
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  color: white;
+  background-color: black;
+  font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+}
+
+main {
+  flex: 1;
 }
 </style>
