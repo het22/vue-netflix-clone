@@ -1,13 +1,14 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import App from './App.vue';
+import router from './router';
 
 Vue.config.productionTip = false;
-
 Vue.use(VueRouter);
 
 new Vue({
   data: { title: 'vue-netflix-clone' },
+  router,
 
   // vue instance lifecycle
   // https://vuejs.org/v2/guide/instance.html#Lifecycle-Diagram
