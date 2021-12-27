@@ -1,19 +1,40 @@
 <template>
   <header>
-    <img class="logo" src="@/assets/logo.png" alt="logo" />
+    <router-link class="logo" to="/">
+      <img src="@/assets/logo.png" alt="logo" />
+    </router-link>
     <ul class="menus">
-      <li class="menu menu--active">홈</li>
-      <li class="menu">시리즈</li>
-      <li class="menu">영화</li>
-      <li class="menu">NEW! 요즘 대세 콘텐츠</li>
-      <li class="menu">내가 찜한 콘텐츠</li>
+      <li
+        v-for="menu in menus"
+        :key="menu.path"
+        class="menu"
+        :class="activePath === menu.path && 'menu--active'"
+      >
+        <router-link :to="menu.path">{{ menu.title }}</router-link>
+      </li>
     </ul>
   </header>
 </template>
 
 <script>
 export default {
-  name: 'app-header'
+  name: 'app-header',
+  data() {
+    return {
+      menus: [
+        { path: '/', title: '홈' },
+        { path: '/series', title: '시리즈' },
+        { path: '/movies', title: '영화' },
+        { path: '/latest', title: 'NEW! 요즘 대세 콘텐츠' },
+        { path: '/my-list', title: '내가 찜한 콘텐츠' }
+      ]
+    };
+  },
+  computed: {
+    activePath() {
+      return this.$route.path;
+    }
+  }
 };
 </script>
 
@@ -31,6 +52,9 @@ header {
   height: 36%;
   cursor: pointer;
 }
+.logo > img {
+  height: 100%;
+}
 
 .menus {
   display: flex;
@@ -38,14 +62,19 @@ header {
 
 .menu {
   list-style: none;
-  font-size: 12px;
-  color: #ccc;
   cursor: pointer;
 }
+.menu > a {
+  font-size: 12px;
+  color: #ccc;
+  text-decoration: none;
+}
 .menu--active {
+  pointer-events: none;
+}
+.menu--active > a {
   font-weight: bold;
   color: white;
-  pointer-events: none;
 }
 .menu + .menu {
   margin-left: 18px;
