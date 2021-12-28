@@ -28,7 +28,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
   color: white;
-  background-color: black;
+  background-color: #111;
   font-family: Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
