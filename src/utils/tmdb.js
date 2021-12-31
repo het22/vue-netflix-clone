@@ -1,7 +1,8 @@
 import axios from 'axios';
+import CONSTANTS from './constants.json';
 
 const tmdb = axios.create({
-  baseURL: 'https://api.themoviedb.org/3'
+  baseURL: CONSTANTS.TMDB_BASE_URL
 });
 
 tmdb.interceptors.request.use(config => {
