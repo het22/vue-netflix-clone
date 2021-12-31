@@ -36,5 +36,6 @@ body {
 
 main {
   flex: 1;
+  padding-bottom: 60px;
 }
 </style>
