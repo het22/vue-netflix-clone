@@ -25,7 +25,6 @@ export default {
   props: ['title', 'fetch'],
   created() {
     this.fetch().then(({ results }) => {
-      console.log(results);
       this.contents = results;
     });
   }
