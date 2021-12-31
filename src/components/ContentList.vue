@@ -6,7 +6,10 @@
         <h3 class="content__title">{{ content.title }}</h3>
         <img
           class="content__thumbnail"
-          :src="CONSTANTS.TMDB_IMAGE_BASE_URL + content.backdrop_path"
+          :src="
+            CONSTANTS.TMDB_IMAGE_BASE_URL +
+            (content.backdrop_path || content.poster_path)
+          "
           :alt="content.title"
         />
       </li>
@@ -59,5 +62,6 @@ export default {
   height: 150px;
   background-color: #222;
   border-radius: 6px;
+  object-fit: cover;
 }
 </style>
