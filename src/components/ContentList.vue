@@ -6,7 +6,7 @@
         <h3 class="content__title">{{ content.title }}</h3>
         <img
           class="content__thumbnail"
-          :src="'https://image.tmdb.org/t/p/w500/' + content.backdrop_path"
+          :src="CONSTANTS.TMDB_IMAGE_BASE_URL + content.backdrop_path"
           :alt="content.title"
         />
       </li>
