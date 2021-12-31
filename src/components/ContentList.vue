@@ -6,7 +6,7 @@
         <h3 class="content__title">{{ content.title }}</h3>
         <img
           class="content__thumbnail"
-          :src="content.thumbnail"
+          :src="'https://image.tmdb.org/t/p/w500/' + content.backdrop_path"
           :alt="content.title"
         />
       </li>
@@ -17,7 +17,18 @@
 <script>
 export default {
   name: 'content-list',
-  props: ['title', 'contents']
+  data() {
+    return {
+      contents: []
+    };
+  },
+  props: ['title', 'fetch'],
+  created() {
+    this.fetch().then(({ results }) => {
+      console.log(results);
+      this.contents = results;
+    });
+  }
 };
 </script>
 
@@ -47,6 +58,7 @@ export default {
 .content__thumbnail {
   width: 260px;
   height: 150px;
+  background-color: #222;
   border-radius: 6px;
 }
 </style>
